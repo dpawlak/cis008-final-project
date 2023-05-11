@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for message in messages %}
+	<p>{{message}}</p>
+{% endfor %}
+<h3>Recently Reviewed Items</h3>
+
+	
+	<table border=1>
+		<tr>
+			<th>ID</th>
+			<th>Username</th>
+			<th>Item</th>
+			<th>Review</th>
+			<th>Rating</th>
+			<th>Date Reviewed</th>
+		</tr>	
+	{% for re in rev %}	
+		<tr>
+			<th>{{re.id}}</th>
+			<td>{{re.username}}</td>
+			<td>{{re.item}}</td>
+			<td>{{re.review}}</td>
+			<td>{{re.rating}}</td>
+			<td>{{re.date_reviewed}}</td>
+		</tr>	
+	{% endfor %}	
+	</table>
+	
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Item List</h3>
+
+{% if latest_item_list %}
+
+	
+
+		<table border="1">
+
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Warranty</th>
+				<th>Description</th>
+				<th>Date Added</th>
+				<th>Add to Cart</th>
+
+			</tr>
+			
+			{% for item in latest_item_list %}
+
+			<tr>
+				<td>{{item.id}}</td>
+				<td> <a href="{% url 'detail' item.item_name %}">{{item.item_name}}</a></td>
+				<td>{{item.price}}</td>
+				<td>{{item.warranty_duration}}</td>
+				<td>{{item.description}}</td>
+				<td>{{item.publish_date}}</td>
+				<td><a href="{% url 'add_to_cart' item_id=item.id %}">Buy</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+
+	
+
+{% else %}
+
+	<p>No items are available</p>
+
+{% endif %}
+{% endblock %}
+

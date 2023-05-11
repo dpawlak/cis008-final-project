@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>{{request.user}}'s cart items</h3>	
+{% if cart %}
+	{% for item in cart %}
+		<p>Item: {{item.item}}</p>
+		<p>Quantity: {{item.quantity}}</p>
+		<p>Price: {{item.price}}</p>
+		<p>Purchased: {{item.cart_status}}</p>
+	{% endfor %}
+{% else %}
+	<p>No items items in cart</p>
+{% endif %}
+{% endblock %}

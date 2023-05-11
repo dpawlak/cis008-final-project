@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Project</title>
+    <style>
+        .navbar {}
+        
+    </style>
+</head>
+<body>
+
+
+    <div class='navbar'>
+        <a href="{% url 'welcome'  %}">Home</a>
+        <a href="{% url 'index'  %}">Items</a>
+        <a href="{% url 'transactions'  %}">Transactions</a>
+        <a href="{% url 'reviews'  %}">Reviews</a>
+        <a href="{% url 'register_page'  %}">Register</a>
+        <a href="{% url 'cart'  %}">Cart</a>
+    </div>
+
+    <span>Hello, {{request.user}}</span>
+    <span><a href="{% url 'logout' %}">Logout</a></span>
+
+{% block content %}  
+{% endblock %}
+</body>
+</html>
