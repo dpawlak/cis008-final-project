@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h3>Transactions</h3>
+{% if transaction_list %}
+	<table border="1">
+
+			<tr>
+				<th>ID</th>
+				<th>Item</th>
+				<th>Quantity of Item</th>
+				<th>Discount %</th>
+				<th>Purchaser</th>
+				<th>Address</th>
+				<th>Purchase Date</th>
+				<th>Individual Price</th>
+				<th>Total Price</th>
+				<th>Amount Discount</th>
+
+			</tr>
+			
+			{% for transaction in transaction_list %}
+
+			<tr>
+				<td>{{transaction.id}}</td>
+				<td>{{transaction.item.item_name}}</td>
+				<td>{{transaction.quantity_of_item}}</td>
+				<td>{{transaction.discount}}%</td>
+				<td>{{transaction.purchaser_name}}</td>
+				<td>{{transaction.address}}</td>
+				<td>{{transaction.purchase_date}}</td>
+				<td>{{transaction.item.price}}</td>
+				<td>{{transaction.total_price}}</td>
+				<td>{{transaction.amount_discount}}</td>
+			</tr>
+			
+
+			{% endfor %}
+		</table>
+{% else %}
+	<p>There are no transactions</p>
+{% endif %}
+	
+{% endblock %}

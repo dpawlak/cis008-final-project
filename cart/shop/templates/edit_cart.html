@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Edit Cart Item</h3>
+<form method="POST" action="">
+	{% csrf_token %}
+	{{form}}
+	<input type="submit" name="edit_cart">
+</form>
+
+{% endblock %}

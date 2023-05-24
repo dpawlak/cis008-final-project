@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+{% for message in messages %}
+	<p>{{message}}</p>
+{% endfor %}
+<h3>{{request.user}}'s cart items</h3>	
+<hr>
+{% if cart %}
+	{% for item in cart %}
+		<p>Item: {{item.item}}</p>
+		<p>Quantity: {{item.quantity}}</p>
+		<p>Price Per Unit: {{item.price}}</p>
+		<p>Validated: {{item.cart_status}}</p>
+		<a href="{% url 'edit_cart' pk=item.id %}">Edit</a>
+		<hr>
+	{% endfor %}
+		<p>Continue to purchase(cart become a transaction item)
+{% else %}
+	<p>No items items in cart</p>
+{% endif %}
+{% endblock %}

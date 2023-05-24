@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% for message in messages %}
+	<p>{{message}}</p>
+{% endfor %}
+<h3>Reviews Form</h3>
+<form method="POST" action="">
+	{% csrf_token %}
+	<label for="item">Item:</label>
+	{{form.item}}<br>
+	<label for="review">Review:</label>
+	{{form.review}}<br>
+	<label for="rating">Rating:</label>
+	{{form.rating}}
+	<input type="submit" name="Create review">
+</form>
+{% endblock %}
